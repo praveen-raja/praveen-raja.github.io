@@ -1,37 +1,44 @@
-/*!
- * Start Bootstrap - Freelancer Bootstrap Theme (https://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
- */
+// Smooth Scrolling for internal links
+$('a[href^="#"]').on("click",function (e) {
+	    e.preventDefault();
 
-// jQuery for page scrolling feature - requires jQuery Easing plugin
-$(function() {
-    $('body').on('click', '.page-scroll a', function(event) {
-        var $anchor = $(this);
-        $('html, body').stop().animate({
-            scrollTop: $($anchor.attr('href')).offset().top
-        }, 1500, 'easeInOutExpo');
-        event.preventDefault();
-    });
+	    var target = this.hash;
+	    var $target = $(target);
+
+	    $("html, body").stop().animate({
+	        "scrollTop": $target.offset().top
+	    }, 900, 'swing', function () {
+	        window.location.hash = target;
+	    });
+	});
+
+// Change background of nav bar on scroll
+$(window).scroll(function() {    
+  var scroll = $(window).scrollTop();
+  if (scroll > window.innerHeight - 55) {
+      $(".navbar").removeClass("transparent");
+    } else {
+      $(".navbar").addClass("transparent");
+    }
 });
 
-// Floating label headings for the contact form
-$(function() {
-    $("body").on("input propertychange", ".floating-label-form-group", function(e) {
-        $(this).toggleClass("floating-label-form-group-with-value", !! $(e.target).val());
-    }).on("focus", ".floating-label-form-group", function() {
-        $(this).addClass("floating-label-form-group-with-focus");
-    }).on("blur", ".floating-label-form-group", function() {
-        $(this).removeClass("floating-label-form-group-with-focus");
-    });
-});
+// Activate scrollspy to highlight nav item when scrolled over
+$("body").scrollspy({target: ".navbar"}) 
 
-// Highlight the top nav as scrolling occurs
-$('body').scrollspy({
-    target: '.navbar-fixed-top'
-})
+// Bind events to open and close portfolio popups
+$(".thumbnail-overlay").on("click", openProject.bind( this ))
+$(".close-window").on("click", closeWindow.bind(this))
 
-// Closes the Responsive Menu on Menu Item Click
-$('.navbar-collapse ul li a').click(function() {
-    $('.navbar-toggle:visible').click();
-});
+function openProject( event ) {
+  if ( $(event.target).next(".thumbnail-overlay") ) {
+    var id =  "#" + $(event.target).parent().attr("page");
+    $(id).fadeIn()
+  } else {
+    var id =  "#" + $(event.target).attr("page");
+    $(id).fadeIn()
+  }
+}
+
+function closeWindow( event ) {
+  $(event.target).parents(".full-screen").fadeOut();
+}
