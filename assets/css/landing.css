@@ -1,0 +1,364 @@
+/* =========================================================================
+   Custom modern landing page — vibrant & bold
+   Loaded only on the home page. Scoped under .lp to avoid clashing with the
+   Minimal Mistakes theme used on inner pages.
+   ========================================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap");
+
+:root {
+  --lp-bg: #0a0a12;
+  --lp-bg-2: #10101f;
+  --lp-text: #e9e9f0;
+  --lp-muted: #a1a1b5;
+  --lp-card: rgba(255, 255, 255, 0.04);
+  --lp-card-border: rgba(255, 255, 255, 0.10);
+  --lp-grad-1: #7c3aed; /* violet */
+  --lp-grad-2: #ec4899; /* pink   */
+  --lp-grad-3: #06b6d4; /* cyan   */
+  --lp-accent: #a855f7;
+}
+
+:root[data-theme="light"] {
+  --lp-bg: #f7f7fb;
+  --lp-bg-2: #ffffff;
+  --lp-text: #14141f;
+  --lp-muted: #55556a;
+  --lp-card: rgba(10, 10, 20, 0.03);
+  --lp-card-border: rgba(10, 10, 20, 0.10);
+}
+
+/* Hide the theme masthead/footer on the fully custom landing page for a clean,
+   immersive look — the in-page navbar takes over. */
+.layout--landing .masthead,
+.layout--landing .page__footer,
+.layout--landing #main .sidebar {
+  display: none;
+}
+
+.lp {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--lp-text);
+  background: var(--lp-bg);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.lp *,
+.lp *::before,
+.lp *::after { box-sizing: border-box; }
+
+.lp .lp-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.lp code,
+.lp .mono { font-family: "JetBrains Mono", monospace; }
+
+/* ---------------------------------------------------------------- Navbar -- */
+.lp-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.5rem;
+  background: color-mix(in srgb, var(--lp-bg) 70%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--lp-card-border);
+}
+.lp-nav .lp-brand {
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, var(--lp-grad-1), var(--lp-grad-2), var(--lp-grad-3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.lp-nav .lp-links {
+  display: flex;
+  gap: 1.4rem;
+  align-items: center;
+}
+.lp-nav .lp-links a {
+  color: var(--lp-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+.lp-nav .lp-links a:hover { color: var(--lp-text); }
+
+@media (max-width: 680px) {
+  .lp-nav .lp-links { gap: 0.9rem; }
+  .lp-nav .lp-links a.lp-hide-sm { display: none; }
+}
+
+/* ------------------------------------------------------------------- Hero -- */
+.lp-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 7rem 1.5rem 4rem;
+  overflow: hidden;
+}
+/* Animated gradient blobs */
+.lp-hero::before,
+.lp-hero::after {
+  content: "";
+  position: absolute;
+  width: 46vw;
+  height: 46vw;
+  max-width: 620px;
+  max-height: 620px;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.55;
+  z-index: 0;
+  animation: lp-float 14s ease-in-out infinite;
+}
+.lp-hero::before {
+  background: radial-gradient(circle at center, var(--lp-grad-1), transparent 70%);
+  top: -8%; left: -6%;
+}
+.lp-hero::after {
+  background: radial-gradient(circle at center, var(--lp-grad-3), transparent 70%);
+  bottom: -10%; right: -8%;
+  animation-delay: -7s;
+}
+@keyframes lp-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(4%, 6%) scale(1.12); }
+}
+
+.lp-hero .lp-container { position: relative; z-index: 1; }
+
+.lp-eyebrow {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  color: var(--lp-accent);
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--lp-card-border);
+  border-radius: 999px;
+  background: var(--lp-card);
+  margin-bottom: 1.5rem;
+}
+
+.lp-hero h1 {
+  font-size: clamp(2.6rem, 8vw, 5rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 0 0 0.6rem;
+}
+.lp-gradient-text {
+  background: linear-gradient(90deg, var(--lp-grad-1), var(--lp-grad-2), var(--lp-grad-3));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: lp-shine 6s linear infinite;
+}
+@keyframes lp-shine {
+  to { background-position: 200% center; }
+}
+
+.lp-typed-wrap {
+  font-family: "JetBrains Mono", monospace;
+  font-size: clamp(1.05rem, 3.5vw, 1.7rem);
+  font-weight: 500;
+  color: var(--lp-text);
+  min-height: 1.6em;
+  margin-bottom: 1.4rem;
+}
+.lp-typed { color: var(--lp-accent); }
+.lp-cursor {
+  display: inline-block;
+  width: 2px;
+  background: var(--lp-accent);
+  margin-left: 2px;
+  animation: lp-blink 1s step-end infinite;
+}
+@keyframes lp-blink { 50% { opacity: 0; } }
+
+.lp-hero p.lp-lead {
+  max-width: 620px;
+  margin: 0 auto 2rem;
+  color: var(--lp-muted);
+  font-size: clamp(1rem, 2.4vw, 1.15rem);
+}
+
+/* Buttons */
+.lp-actions { display: flex; gap: 0.85rem; flex-wrap: wrap; justify-content: center; }
+.lp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+  border: 1px solid transparent;
+}
+.lp-btn-primary {
+  color: #fff;
+  background: linear-gradient(90deg, var(--lp-grad-1), var(--lp-grad-2));
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.35);
+}
+.lp-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(124, 58, 237, 0.5); }
+.lp-btn-ghost {
+  color: var(--lp-text);
+  background: var(--lp-card);
+  border-color: var(--lp-card-border);
+}
+.lp-btn-ghost:hover { transform: translateY(-2px); border-color: var(--lp-accent); }
+
+/* Social row */
+.lp-social { display: flex; gap: 1.1rem; justify-content: center; margin-top: 2rem; }
+.lp-social a {
+  color: var(--lp-muted);
+  font-size: 1.3rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.lp-social a:hover { color: var(--lp-accent); transform: translateY(-2px); }
+
+/* Scroll cue */
+.lp-scroll-cue {
+  position: absolute;
+  bottom: 1.6rem; left: 50%;
+  transform: translateX(-50%);
+  color: var(--lp-muted);
+  font-size: 1.4rem;
+  z-index: 1;
+  animation: lp-bob 2s ease-in-out infinite;
+}
+@keyframes lp-bob { 0%,100%{ transform: translate(-50%, 0);} 50%{ transform: translate(-50%, 8px);} }
+
+/* --------------------------------------------------------------- Sections -- */
+.lp-section { position: relative; padding: 5rem 0; }
+.lp-section-alt { background: var(--lp-bg-2); }
+.lp-section h2 {
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.4rem;
+}
+.lp-section .lp-section-sub {
+  color: var(--lp-muted);
+  margin: 0 0 2.5rem;
+  font-size: 1.05rem;
+}
+.lp-kicker {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  color: var(--lp-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Skill badges */
+.lp-skills { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+.lp-skill {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+  padding: 0.5rem 0.95rem;
+  border-radius: 10px;
+  background: var(--lp-card);
+  border: 1px solid var(--lp-card-border);
+  transition: transform 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+.lp-skill:hover { transform: translateY(-3px); border-color: var(--lp-accent); color: var(--lp-accent); }
+.lp-skill-group { margin-bottom: 1.75rem; }
+.lp-skill-group h4 { margin: 0 0 0.8rem; font-size: 0.95rem; color: var(--lp-muted); font-weight: 600; }
+
+/* Project cards */
+.lp-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.4rem;
+}
+.lp-card {
+  position: relative;
+  padding: 1.6rem;
+  border-radius: 16px;
+  background: var(--lp-card);
+  border: 1px solid var(--lp-card-border);
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.lp-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--lp-grad-1), var(--lp-grad-3));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.lp-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,0.35); }
+.lp-card:hover::before { opacity: 1; }
+.lp-card h3 { margin: 0 0 0.35rem; font-size: 1.2rem; font-weight: 700; }
+.lp-card .lp-card-meta { font-family: "JetBrains Mono", monospace; font-size: 0.75rem; color: var(--lp-accent); margin-bottom: 0.7rem; }
+.lp-card p { color: var(--lp-muted); font-size: 0.92rem; margin: 0 0 1rem; }
+.lp-card .lp-card-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.9rem; }
+.lp-card .lp-card-tags span {
+  font-size: 0.7rem;
+  font-family: "JetBrains Mono", monospace;
+  padding: 0.12rem 0.5rem;
+  border-radius: 6px;
+  background: rgba(168, 85, 247, 0.14);
+  color: var(--lp-text);
+}
+.lp-card a.lp-card-link { color: var(--lp-accent); text-decoration: none; font-weight: 600; font-size: 0.88rem; }
+.lp-card a.lp-card-link:hover { text-decoration: underline; }
+
+/* CTA band */
+.lp-cta {
+  text-align: center;
+  padding: 5rem 1.5rem;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(124,58,237,0.18), transparent 55%),
+    radial-gradient(circle at 70% 80%, rgba(6,182,212,0.18), transparent 55%),
+    var(--lp-bg);
+}
+.lp-cta h2 { font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 800; margin: 0 0 0.6rem; }
+.lp-cta p { color: var(--lp-muted); margin: 0 0 1.8rem; }
+
+/* Footer */
+.lp-footer {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  color: var(--lp-muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--lp-card-border);
+  background: var(--lp-bg);
+}
+.lp-footer a { color: var(--lp-muted); text-decoration: none; }
+.lp-footer a:hover { color: var(--lp-accent); }
+
+/* Scroll-reveal */
+.lp-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.lp-reveal.lp-visible { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .lp-hero::before, .lp-hero::after,
+  .lp-gradient-text, .lp-scroll-cue, .lp-cursor { animation: none; }
+  .lp-reveal { opacity: 1; transform: none; transition: none; }
+}
