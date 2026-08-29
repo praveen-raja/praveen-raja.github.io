@@ -12,6 +12,10 @@ baseurl: ""
 repository: "praveen-raja/praveen-raja.github.io"
 locale: "en-US"
 
+# Hide the RSS "Feed" link in the footer
+atom_feed:
+  hide: true
+
 # ---------------------------------------------------------------------------
 # Theme (remote theme, no local gem install needed on GitHub Pages)
 # ---------------------------------------------------------------------------
