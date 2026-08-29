@@ -1,0 +1,122 @@
+# ---------------------------------------------------------------------------
+# Site settings
+# ---------------------------------------------------------------------------
+title: "Praveenkumar Raja"
+name: "Praveenkumar Raja"
+description: >-
+  Software Engineer and Java / Backend Developer. I build enterprise-scale
+  backend systems, microservices, and multi-cloud integrations. Tech enthusiast,
+  writer, and lifelong learner.
+url: "https://praveen-raja.github.io"
+baseurl: ""
+repository: "praveen-raja/praveen-raja.github.io"
+locale: "en-US"
+
+# ---------------------------------------------------------------------------
+# Theme (remote theme, no local gem install needed on GitHub Pages)
+# ---------------------------------------------------------------------------
+remote_theme: "mmistakes/minimal-mistakes"
+minimal_mistakes_skin: "dark"   # default skin; a client-side toggle overrides this
+search: true
+
+# ---------------------------------------------------------------------------
+# Author profile (shown in the sidebar). Phone intentionally omitted.
+# ---------------------------------------------------------------------------
+author:
+  name: "Praveenkumar Raja"
+  avatar: "/assets/images/avatar.svg"
+  bio: "Software Engineer · Java & Backend Developer"
+  location: "Coimbatore, India"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:ipraveenkumar.raja@gmail.com"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/praveen-raja"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://linkedin.com/in/praveenkumar-raja"
+
+# ---------------------------------------------------------------------------
+# Site-wide footer links
+# ---------------------------------------------------------------------------
+footer:
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/praveen-raja"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://linkedin.com/in/praveenkumar-raja"
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:ipraveenkumar.raja@gmail.com"
+
+# ---------------------------------------------------------------------------
+# Build settings
+# ---------------------------------------------------------------------------
+markdown: kramdown
+highlighter: rouge
+paginate: 5
+paginate_path: /blog/page:num/
+timezone: Asia/Kolkata
+
+plugins:
+  - jekyll-include-cache
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-seo-tag
+
+# Safe list so GitHub Pages honors the plugins above
+whitelist:
+  - jekyll-include-cache
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-seo-tag
+
+# Load the theme toggle script after the footer on every page
+after_footer_scripts:
+  - /assets/js/theme-toggle.js
+
+# ---------------------------------------------------------------------------
+# Collections / includes
+# ---------------------------------------------------------------------------
+include:
+  - _pages
+
+# ---------------------------------------------------------------------------
+# Front-matter defaults
+# ---------------------------------------------------------------------------
+defaults:
+  # Blog posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: false
+      share: true
+      related: true
+      show_date: true
+  # Standalone pages
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+
+# ---------------------------------------------------------------------------
+# Exclusions
+# ---------------------------------------------------------------------------
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .jekyll-cache
+  - README.md
