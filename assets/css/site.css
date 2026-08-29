@@ -50,6 +50,22 @@ body {
 body.layout--landing #main.page__content,
 body.layout--landing .page__content { padding: 0; }
 
+/* Pages using the custom .lp-inner design fill the available width so there is
+   no large empty gap on the right on wide screens. The theme reserves right
+   padding on .page for a right sidebar that these pages do not use, so we
+   reclaim that space. */
+.page:has(.lp-inner) {
+  padding-inline-end: 0 !important;
+}
+@media (min-width: 64em) {
+  .page:has(.lp-inner) { width: calc(100% - 200px) !important; }
+}
+@media (min-width: 80em) {
+  .page:has(.lp-inner) { width: calc(100% - 210px) !important; }
+}
+.lp-inner { width: 100%; }
+.lp-inner .lp-cards { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+
 .page__content,
 .archive,
 .sidebar,
