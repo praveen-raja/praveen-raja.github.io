@@ -50,9 +50,27 @@ body {
 body.layout--landing #main.page__content,
 body.layout--landing .page__content { padding: 0; }
 
-/* Custom .lp-inner pages (About, Projects) use the theme's "wide" layout with
-   no author sidebar, so they naturally fill the full content width with no gap
-   and no overlap. Just make the cards reflow nicely. */
+/* -------------------------------------------------------------------------
+   Remove the left/right sidebar gap site-wide.
+
+   Minimal Mistakes floats .page to the right and reserves sidebar padding on
+   every page. When a page has NO author sidebar, that reserved space shows up
+   as an empty gap. So: whenever #main does not contain a .sidebar, make .page
+   fill the full centered width. Pages that DO have a sidebar keep the normal
+   layout untouched.
+   ------------------------------------------------------------------------- */
+#main:not(:has(.sidebar)) .page {
+  float: none !important;
+  width: 100% !important;
+  padding-inline: 0 !important;
+  margin-inline: auto !important;
+}
+#main:not(:has(.sidebar)) .page .page__inner-wrap { float: none; width: 100%; }
+
+/* Custom .lp-inner pages carry their own headings, so hide the theme's auto
+   page title to avoid a duplicate. */
+.page:has(.lp-inner) .page__title { display: none; }
+
 .lp-inner { width: 100%; }
 .lp-inner .lp-cards { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
 
