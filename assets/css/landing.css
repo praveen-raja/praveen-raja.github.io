@@ -26,6 +26,7 @@
   --lp-muted: #55556a;
   --lp-card: rgba(10, 10, 20, 0.03);
   --lp-card-border: rgba(10, 10, 20, 0.10);
+  --lp-accent: #7c3aed; /* deeper, calmer violet for light mode */
 }
 
 /* The landing page now shares the site-wide sticky navbar and footer from the
@@ -206,11 +207,19 @@
   min-height: 1.6em;
   margin-bottom: 1.4rem;
 }
-.lp-typed { color: var(--lp-accent); }
+.lp-typed {
+  background: linear-gradient(90deg, var(--lp-grad-1), var(--lp-grad-2), var(--lp-grad-3));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: lp-shine 6s linear infinite;
+  font-weight: 700;
+}
 .lp-cursor {
   display: inline-block;
   width: 2px;
-  background: var(--lp-accent);
+  background: var(--lp-grad-2);
   margin-left: 2px;
   animation: lp-blink 1s step-end infinite;
 }
@@ -237,18 +246,22 @@
   transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
   border: 1px solid transparent;
 }
-.lp-btn-primary {
-  color: #fff;
+.lp-btn-primary,
+.lp .lp-btn-primary:link,
+.lp .lp-btn-primary:visited {
+  color: #ffffff !important;
   background: linear-gradient(90deg, var(--lp-grad-1), var(--lp-grad-2));
   box-shadow: 0 8px 24px rgba(124, 58, 237, 0.35);
 }
-.lp-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(124, 58, 237, 0.5); }
-.lp-btn-ghost {
-  color: var(--lp-text);
+.lp-btn-primary:hover { color: #ffffff !important; transform: translateY(-2px); box-shadow: 0 12px 30px rgba(124, 58, 237, 0.5); }
+.lp-btn-ghost,
+.lp .lp-btn-ghost:link,
+.lp .lp-btn-ghost:visited {
+  color: var(--lp-text) !important;
   background: var(--lp-card);
   border-color: var(--lp-card-border);
 }
-.lp-btn-ghost:hover { transform: translateY(-2px); border-color: var(--lp-accent); }
+.lp-btn-ghost:hover { color: var(--lp-accent) !important; transform: translateY(-2px); border-color: var(--lp-accent); }
 
 /* Social row */
 .lp-social { display: flex; gap: 1.1rem; justify-content: center; margin-top: 2rem; }
@@ -385,4 +398,44 @@
   .lp-hero::before, .lp-hero::after,
   .lp-gradient-text, .lp-scroll-cue, .lp-cursor { animation: none; }
   .lp-reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* =========================================================================
+   Shared "lp" styling reused on inner pages (About, etc.) via .lp-inner.
+   Renders inside the theme content area rather than full-screen.
+   ========================================================================= */
+.lp-inner { background: transparent; }
+.lp-inner .lp-section { padding: 2rem 0; }
+.lp-inner .lp-container { max-width: 100%; }
+
+.lp-about-h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+  color: var(--lp-text);
+}
+
+/* Experience list — clean, minimal rows */
+.lp-exp {
+  border: 1px solid var(--lp-card-border);
+  border-radius: 14px;
+  background: var(--lp-card);
+  overflow: hidden;
+}
+.lp-exp-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  flex-wrap: wrap;
+}
+.lp-exp-row + .lp-exp-row { border-top: 1px solid var(--lp-card-border); }
+.lp-exp-role { font-weight: 700; color: var(--lp-text); }
+.lp-exp-company { color: var(--lp-muted); font-weight: 500; }
+.lp-exp-date {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.82rem;
+  color: var(--lp-accent);
+  white-space: nowrap;
 }

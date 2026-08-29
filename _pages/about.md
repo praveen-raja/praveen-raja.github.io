@@ -3,119 +3,99 @@ title: "About"
 permalink: /about/
 layout: single
 author_profile: true
-toc: true
-toc_label: "On this page"
-toc_sticky: true
 ---
 
-## Summary
+<link rel="stylesheet" href="{{ '/assets/css/landing.css' | relative_url }}">
 
-I'm a **Software Engineer** specializing in **Java** and **backend development**.
-I design and build enterprise-scale microservices, REST APIs, and multi-cloud
-integrations, with a focus on secure data workflows, reliability, and
-observability. I currently work at **Exterro** on e-Discovery and enterprise
-data governance, and previously spent over two years at **Cognizant** building
-and maintaining high-traffic authentication and integration platforms.
+<div class="lp lp-inner">
 
-Beyond the day job I'm a genuine tech enthusiast, always exploring new tools,
-cloud services, and the occasional security CTF.
+  <section class="lp-section" style="padding-top:2.5rem;">
+    <div class="lp-container lp-reveal" style="padding:0;">
+      <span class="lp-kicker">About</span>
+      <h2>Backend engineer with an eye for reliable systems</h2>
+      <p style="max-width:720px;color:var(--lp-muted);font-size:1.08rem;">
+        I'm a Software Engineer focused on <strong>Java</strong> and
+        <strong>backend development</strong>. I design and ship enterprise-scale
+        microservices, REST APIs, and multi-cloud integrations &mdash; with a
+        bias toward clean architecture, observability, and things that hold up
+        in production. Outside of work I'm a genuine tech enthusiast, always
+        tinkering with cloud, containers, and the occasional security CTF.
+      </p>
+    </div>
+  </section>
 
-## Skills
+  <section class="lp-section" style="padding-top:1rem;">
+    <div class="lp-container lp-reveal" style="padding:0;">
+      <h3 class="lp-about-h3">What I do</h3>
+      <div class="lp-cards">
+        <div class="lp-card">
+          <h3>Backend &amp; APIs</h3>
+          <p>Core Java and Spring Boot services, REST API design, and
+             message-driven systems with ActiveMQ and Redis.</p>
+        </div>
+        <div class="lp-card">
+          <h3>Cloud &amp; Data</h3>
+          <p>Multi-cloud enterprise connectors, AWS services, and automated ETL
+             pipelines into MSSQL with strict validation.</p>
+        </div>
+        <div class="lp-card">
+          <h3>Reliability</h3>
+          <p>Real-time health-monitoring APIs, L3 production support, and root
+             cause analysis to keep systems observable and stable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-**Proficient**
-{: .notice--info}
+  <section class="lp-section" style="padding-top:1rem;">
+    <div class="lp-container lp-reveal" style="padding:0;">
+      <h3 class="lp-about-h3">Core skills</h3>
+      <div class="lp-skills">
+        <span class="lp-skill">Java 8</span>
+        <span class="lp-skill">Spring Boot</span>
+        <span class="lp-skill">Microservices</span>
+        <span class="lp-skill">REST APIs</span>
+        <span class="lp-skill">SQL</span>
+        <span class="lp-skill">ActiveMQ / Redis</span>
+        <span class="lp-skill">AWS</span>
+        <span class="lp-skill">Docker / Kubernetes</span>
+      </div>
+    </div>
+  </section>
 
-- Java 8
-- Spring Boot
-- Microservices
-- REST API Development
-- SQL
-- ActiveMQ / Redis
-- Git / SVN
-- Jira Administration
+  <section class="lp-section" style="padding-top:1rem;">
+    <div class="lp-container lp-reveal" style="padding:0;">
+      <h3 class="lp-about-h3">Where I've worked</h3>
+      <div class="lp-exp">
+        <div class="lp-exp-row">
+          <div>
+            <span class="lp-exp-role">Software Engineer</span>
+            <span class="lp-exp-company">· Exterro</span>
+          </div>
+          <span class="lp-exp-date">Feb 2023 &ndash; Present</span>
+        </div>
+        <div class="lp-exp-row">
+          <div>
+            <span class="lp-exp-role">Software Engineer</span>
+            <span class="lp-exp-company">· Cognizant</span>
+          </div>
+          <span class="lp-exp-date">Oct 2020 &ndash; Feb 2023</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-**Familiar**
+  <section class="lp-section" style="padding-top:1rem;padding-bottom:3rem;">
+    <div class="lp-container lp-reveal" style="padding:0;">
+      <p style="color:var(--lp-muted);">
+        Want the full details &mdash; experience, education, awards, and
+        certifications?
+      </p>
+      <div class="lp-actions" style="justify-content:flex-start;">
+        <a class="lp-btn lp-btn-primary" href="/resume/">View full resume</a>
+        <a class="lp-btn lp-btn-ghost" href="mailto:ipraveenkumar.raja@gmail.com">Get in touch</a>
+      </div>
+    </div>
+  </section>
 
-- JavaScript / Angular
-- AWS Services
-- Docker / Kubernetes
-
-## Experience
-
-### Exterro &mdash; Software Engineer
-*Feb 2023 &ndash; Present · Coimbatore, TN, India*
-
-- Engineered enterprise **In-Place Preservation** workflows to automate secure
-  data retention and governance, enforcing strict security-compliance guidelines
-  across distributed datasets.
-- Architected and integrated multi-cloud enterprise connectors for **Google Vault,
-  Microsoft 365 eDiscovery, Slack, iManage, Proofpoint, FileNet, CrashPlan, and
-  Code42** into the e-Discovery suite.
-- Developed custom internal admin frameworks and automated process-monitoring
-  utilities to streamline troubleshooting, operational diagnostics, and runtime
-  execution tracking.
-- Designed and executed automated **ETL data-migration pipelines** to extract,
-  transform, and ingest third-party datasets into enterprise MSSQL databases with
-  strict schema validation.
-- Engineered real-time health-monitoring **REST APIs** that expose critical system
-  metrics and message-queue status, significantly improving backend observability
-  and reliability.
-- Managed **L3 production support** for client-escalated incidents under strict
-  SLAs, performing root cause analysis and deploying patches to eliminate backend
-  bottlenecks and reduce recurring tickets.
-
-*Core Java · Spring Boot · MSSQL · Redis · ActiveMQ · Jira · AWS · REST APIs · SVN · GitHub*
-
-### Cognizant &mdash; Software Engineer
-*Oct 2020 &ndash; Feb 2023 · Coimbatore, TN, India*
-
-- Maintained and enhanced a high-traffic **Single Sign-On (SSO)** authentication
-  and authorization application serving **160K+ users**.
-- Administered Jira Cloud platforms, integrated custom third-party applications,
-  and optimized internal Atlassian workflows.
-- Built and optimized middleware **REST API** services for Interactive Voice
-  Response (**IVR**) integration with customer-service operations.
-
-*Java · Spring Boot · Microservices · REST APIs · SQL · Git · Splunk · Jira*
-
-### Cognizant &mdash; Intern
-*Dec 2019 &ndash; Apr 2020 · Coimbatore, TN, India*
-
-- Trained in core full-stack software development, focusing on Java backend
-  frameworks.
-
-## Education
-
-### Hindusthan College of Engineering and Technology
-**B.E. in Mechatronics** · CGPA 8.75 / 10.0
-*May 2020 · Coimbatore, TN*
-
-### NMHSS
-**HSC (Bio-Maths)** · 84%
-*May 2016 · Erode, TN*
-
-## Awards
-
-- Received the **"Ultimate Contributor"** award at Cognizant.
-- **Top 5%** in the CloudSEK CTF event (2,500+ participants).
-- Secured **5th place** in a national-level Go-Kart championship.
-
-## Certifications
-
-- Junior Software Engineer (FSE)
-- [AWS Essentials &mdash; Hands-on Learning](https://www.udemy.com/certificate/UC-f1a81cd9-4af4-44dc-8f52-9823aa9e01b9/)
-- [Google IT Support Certificate](https://www.credly.com/badges/89bf4d9b-47d7-4cfd-b656-bba05a26abca/linked_in_profile)
-- [Intro to Bash Shell Scripting](https://www.coursera.org/account/accomplishments/verify/SMUQEC84QXD7)
-- [Cybersecurity Tools &amp; Attacks](https://www.coursera.org/account/accomplishments/verify/KWKQ9FCSES3K)
-- [Kubernetes Labs for Beginners](https://kodekloud.com/certificate-verification/83B3A2A1A2-83B97A99FF-83AD6F90FA/)
-
-## Languages
-
-- English
-- Tamil
-
-## Get in touch
-
-- Email: [ipraveenkumar.raja@gmail.com](mailto:ipraveenkumar.raja@gmail.com)
-- GitHub: [praveen-raja](https://github.com/praveen-raja)
-- LinkedIn: [praveenkumar-raja](https://linkedin.com/in/praveenkumar-raja)
+</div>
