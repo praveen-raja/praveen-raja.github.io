@@ -46,30 +46,44 @@ body {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
 }
 
-/* Keep the custom landing page free of the theme content padding */
-body.layout--landing #main.page__content,
-body.layout--landing .page__content { padding: 0; }
+/* =========================================================================
+   LAYOUT & SPACING — single source of truth
+   Fixes: (1) empty left gap from the theme's reserved sidebar space,
+          (2) large empty vertical band at the top of custom pages,
+          (3) oversized gaps between landing sections.
+   ========================================================================= */
 
-/* -------------------------------------------------------------------------
-   Remove the left/right sidebar gap site-wide.
-
-   Minimal Mistakes floats .page to the right and reserves sidebar padding on
-   every page. When a page has NO author sidebar, that reserved space shows up
-   as an empty gap. So: whenever #main does not contain a .sidebar, make .page
-   fill the full centered width. Pages that DO have a sidebar keep the normal
-   layout untouched.
-   ------------------------------------------------------------------------- */
+/* (1) Left gap: the theme floats .page right and reserves sidebar padding.
+   On pages WITHOUT an author sidebar, reclaim that space and go full width. */
 #main:not(:has(.sidebar)) .page {
   float: none !important;
   width: 100% !important;
   padding-inline: 0 !important;
   margin-inline: auto !important;
 }
-#main:not(:has(.sidebar)) .page .page__inner-wrap { float: none; width: 100%; }
+#main:not(:has(.sidebar)) .page .page__inner-wrap {
+  float: none !important;
+  width: 100% !important;
+  margin-top: 0 !important;
+}
 
-/* Custom .lp-inner pages carry their own headings, so hide the theme's auto
-   page title to avoid a duplicate. */
-.page:has(.lp-inner) .page__title { display: none; }
+/* Landing page: no theme content padding at all. */
+body.layout--landing #main { padding: 0 !important; }
+body.layout--landing .page,
+body.layout--landing .page__content { padding: 0 !important; margin: 0 !important; }
+
+/* (2) Top gap on custom .lp-inner pages (About, Projects):
+   hide the theme's auto page title (these pages have their own heading) and
+   collapse the space the title/wrapper would leave. */
+.page:has(.lp-inner) .page__title,
+.no-page-title .page__title { display: none !important; }
+.page:has(.lp-inner) .page__inner-wrap,
+.page:has(.lp-inner) .page__content {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+/* Trim the theme's #main top animation offset so content starts near the nav. */
+#main { padding-top: 0.5rem; }
 
 .lp-inner { width: 100%; }
 .lp-inner .lp-cards { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }

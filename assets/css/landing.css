@@ -285,7 +285,7 @@
 @keyframes lp-bob { 0%,100%{ transform: translate(-50%, 0);} 50%{ transform: translate(-50%, 8px);} }
 
 /* --------------------------------------------------------------- Sections -- */
-.lp-section { position: relative; padding: 5rem 0; }
+.lp-section { position: relative; padding: 3.25rem 0; }
 .lp-section-alt { background: var(--lp-bg-2); }
 .lp-section h2 {
   font-size: clamp(1.8rem, 5vw, 2.6rem);
@@ -406,7 +406,10 @@
    Renders inside the theme content area rather than full-screen.
    ========================================================================= */
 .lp-inner { background: transparent; }
-.lp-inner .lp-section { padding: 2rem 0; }
+.lp-inner .lp-section { padding: 1.25rem 0; }
+/* Kill the big gap at the top: first section sits flush under the navbar. */
+.lp-inner > .lp-section:first-child { padding-top: 0; }
+.lp-inner .lp-section:first-child .lp-container { padding-top: 0 !important; }
 .lp-inner .lp-container { max-width: 100%; }
 
 .lp-about-h3 {
