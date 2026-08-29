@@ -2,7 +2,8 @@
 title: "Blog"
 permalink: /blog/
 layout: home
-author_profile: true
+author_profile: false
+classes: wide
 entries_layout: list
 paginate: true
 ---
