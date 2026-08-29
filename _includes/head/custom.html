@@ -1,0 +1,19 @@
+<!-- Custom head additions -->
+<link rel="icon" type="image/svg+xml" href="{{ '/assets/images/favicon.svg' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/theme-toggle.css' | relative_url }}">
+
+<!--
+  Apply the saved theme as early as possible to avoid a flash of the wrong
+  theme. Defaults to "dark" when nothing has been stored yet.
+-->
+<script>
+  (function () {
+    try {
+      var stored = localStorage.getItem("theme");
+      var theme = stored ? stored : "dark";
+      document.documentElement.setAttribute("data-theme", theme);
+    } catch (e) {
+      document.documentElement.setAttribute("data-theme", "dark");
+    }
+  })();
+</script>

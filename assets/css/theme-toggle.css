@@ -1,0 +1,162 @@
+/* -------------------------------------------------------------------------
+   Floating light/dark theme toggle button
+   ------------------------------------------------------------------------- */
+.theme-toggle {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1000;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.35rem;
+  line-height: 3rem;
+  text-align: center;
+  cursor: pointer;
+  background-color: #2a3441;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.08);
+}
+
+.theme-toggle:focus {
+  outline: 2px solid #52adc8;
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------
+   Light mode overrides.
+
+   The site ships with the Minimal Mistakes "dark" skin as the baseline.
+   When the visitor switches to light mode we remap the main surfaces to a
+   clean, professional light palette.
+   ------------------------------------------------------------------------- */
+:root[data-theme="light"] {
+  --mm-bg: #ffffff;
+  --mm-text: #333333;
+  --mm-muted: #6f777d;
+  --mm-border: #e6e6e6;
+  --mm-link: #1f6feb;
+  --mm-surface: #f8f9fa;
+}
+
+:root[data-theme="light"] body {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+:root[data-theme="light"] .masthead {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+:root[data-theme="light"] .masthead__inner-wrap {
+  color: #333333;
+}
+
+:root[data-theme="light"] .greedy-nav {
+  background: #ffffff;
+}
+
+:root[data-theme="light"] .greedy-nav a,
+:root[data-theme="light"] .site-title,
+:root[data-theme="light"] .masthead a {
+  color: #333333;
+}
+
+:root[data-theme="light"] .greedy-nav .visible-links a:before {
+  background: #1f6feb;
+}
+
+:root[data-theme="light"] .page__content,
+:root[data-theme="light"] .archive__item-excerpt,
+:root[data-theme="light"] p,
+:root[data-theme="light"] li {
+  color: #333333;
+}
+
+:root[data-theme="light"] h1,
+:root[data-theme="light"] h2,
+:root[data-theme="light"] h3,
+:root[data-theme="light"] h4,
+:root[data-theme="light"] h5,
+:root[data-theme="light"] h6,
+:root[data-theme="light"] .page__title,
+:root[data-theme="light"] .archive__item-title {
+  color: #1a1a1a;
+}
+
+:root[data-theme="light"] a {
+  color: #1f6feb;
+}
+
+:root[data-theme="light"] .author__content,
+:root[data-theme="light"] .author__name,
+:root[data-theme="light"] .sidebar {
+  color: #333333;
+}
+
+:root[data-theme="light"] .author__urls,
+:root[data-theme="light"] .author__urls-wrapper button {
+  color: #333333;
+}
+
+:root[data-theme="light"] .author__urls.social-icons a {
+  color: #333333;
+}
+
+:root[data-theme="light"] .page__footer {
+  background-color: #f2f3f3;
+  color: #6f777d;
+}
+
+:root[data-theme="light"] .page__footer a,
+:root[data-theme="light"] .page__footer-follow a {
+  color: #6f777d;
+}
+
+:root[data-theme="light"] .btn--primary {
+  background-color: #1f6feb;
+  color: #ffffff;
+}
+
+/* Cards / feature rows and custom resume + project surfaces */
+:root[data-theme="light"] .feature__item .archive__item-body,
+:root[data-theme="light"] .project-card,
+:root[data-theme="light"] .resume {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+:root[data-theme="light"] .project-card {
+  border: 1px solid #e6e6e6;
+}
+
+:root[data-theme="light"] code,
+:root[data-theme="light"] .highlight {
+  background-color: #f4f5f5;
+  color: #24292e;
+}
+
+:root[data-theme="light"] .theme-toggle {
+  background-color: #1f6feb;
+  color: #ffffff;
+}
+
+/* Ensure the toggle stays comfortably placed on small screens */
+@media (max-width: 600px) {
+  .theme-toggle {
+    right: 0.75rem;
+    bottom: 0.75rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    line-height: 2.75rem;
+    font-size: 1.2rem;
+  }
+}
