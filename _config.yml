@@ -24,7 +24,7 @@ search: true
 # ---------------------------------------------------------------------------
 author:
   name: "Praveenkumar Raja"
-  avatar: "/assets/images/avatar.svg"
+  avatar: "https://avatars.githubusercontent.com/u/40530606?v=4"
   bio: "Software Engineer · Java & Backend Developer"
   location: "Coimbatore, India"
   links:
@@ -61,6 +61,9 @@ highlighter: rouge
 paginate: 5
 paginate_path: /blog/page:num/
 timezone: Asia/Kolkata
+
+# Blog posts live under /blog/... e.g. /blog/2026/08/29/hello-world/
+permalink: /blog/:year/:month/:day/:title/
 
 plugins:
   - jekyll-include-cache

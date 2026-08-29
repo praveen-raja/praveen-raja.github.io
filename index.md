@@ -23,6 +23,7 @@ title: "Praveenkumar Raja — Software Engineer"
   <!-- Hero -->
   <header class="lp-hero">
     <div class="lp-container">
+      <img class="lp-avatar" src="https://avatars.githubusercontent.com/u/40530606?v=4" alt="Praveenkumar Raja" width="140" height="140" loading="eager">
       <span class="lp-eyebrow">&lt;/&gt; Hello, World</span>
       <h1>I'm <span class="lp-gradient-text">Praveenkumar Raja</span></h1>
       <div class="lp-typed-wrap">
