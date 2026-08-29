@@ -3,7 +3,13 @@ title: "Resume"
 permalink: /resume/
 layout: single
 author_profile: false
+classes: wide no-page-title
 ---
+
+<style>
+/* Hide the theme's auto page title on this page (we're already on Resume). */
+.no-page-title .page__title { display: none; }
+</style>
 
 <style>
 .resume {
@@ -12,9 +18,20 @@ author_profile: false
 }
 .resume-header {
   text-align: center;
-  border-bottom: 2px solid #52adc8;
+  border-bottom: 2px solid #7c3aed;
   padding-bottom: 1rem;
   margin-bottom: 1.5rem;
+}
+.resume-avatar {
+  display: block;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 0.9rem;
+  padding: 4px;
+  background: linear-gradient(135deg, #7c3aed, #ec4899, #06b6d4);
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.35);
 }
 .resume-header h1 { margin-bottom: 0.15rem; }
 .resume-header .resume-title {
@@ -60,6 +77,7 @@ author_profile: false
 <div class="resume" markdown="0">
 
   <div class="resume-header">
+    <img class="resume-avatar" src="https://avatars.githubusercontent.com/u/40530606?v=4" alt="Praveenkumar Raja" width="120" height="120">
     <h1>Praveenkumar Raja</h1>
     <div class="resume-title">Software Engineer &middot; Java &amp; Backend Developer</div>
     <div class="resume-contact">

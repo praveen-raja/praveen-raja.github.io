@@ -390,9 +390,10 @@
 .lp-footer a { color: var(--lp-muted); text-decoration: none; }
 .lp-footer a:hover { color: var(--lp-accent); }
 
-/* Scroll-reveal */
-.lp-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
-.lp-reveal.lp-visible { opacity: 1; transform: translateY(0); }
+/* Scroll-reveal — only hide/animate on the full landing page. On inner pages
+   (.lp-inner) content is always visible so it never depends on JS. */
+.layout--landing .lp-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.layout--landing .lp-reveal.lp-visible { opacity: 1; transform: translateY(0); }
 
 @media (prefers-reduced-motion: reduce) {
   .lp-hero::before, .lp-hero::after,
