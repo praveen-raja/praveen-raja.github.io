@@ -28,13 +28,17 @@
   --lp-card-border: rgba(10, 10, 20, 0.10);
 }
 
-/* Hide the theme masthead/footer on the fully custom landing page for a clean,
-   immersive look — the in-page navbar takes over. */
-.layout--landing .masthead,
-.layout--landing .page__footer,
-.layout--landing #main .sidebar {
-  display: none;
-}
+/* The landing page now shares the site-wide sticky navbar and footer from the
+   theme (unified look). Hide only the sidebar on the landing layout so the hero
+   spans full width. */
+.layout--landing #main .sidebar { display: none; }
+
+/* The in-page landing navbar/footer are replaced by the unified theme chrome. */
+.lp .lp-nav,
+.lp .lp-footer { display: none; }
+
+/* Offset the hero for the now-visible sticky theme navbar. */
+.layout--landing .lp-hero { min-height: calc(100vh - 70px); }
 
 .lp {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;

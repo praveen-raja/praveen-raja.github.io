@@ -1,0 +1,210 @@
+/* =========================================================================
+   Site-wide skin — unifies the Minimal Mistakes theme with the custom
+   vibrant landing design. Loaded on EVERY page via head/custom.html.
+
+   Goal: one cohesive look across home, about, projects, blog, resume.
+   The theme's HTML structure and JS (greedy nav, search) stay intact; we
+   only restyle it to match the landing aesthetic.
+   ========================================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap");
+
+:root {
+  --st-bg: #0a0a12;
+  --st-bg-2: #10101f;
+  --st-text: #e9e9f0;
+  --st-muted: #a1a1b5;
+  --st-card: rgba(255, 255, 255, 0.04);
+  --st-card-border: rgba(255, 255, 255, 0.10);
+  --st-grad-1: #7c3aed;
+  --st-grad-2: #ec4899;
+  --st-grad-3: #06b6d4;
+  --st-accent: #a855f7;
+  --st-link: #c084fc;
+}
+
+:root[data-theme="light"] {
+  --st-bg: #f7f7fb;
+  --st-bg-2: #ffffff;
+  --st-text: #14141f;
+  --st-muted: #55556a;
+  --st-card: rgba(10, 10, 20, 0.03);
+  --st-card-border: rgba(10, 10, 20, 0.10);
+  --st-accent: #7c3aed;
+  --st-link: #7c3aed;
+}
+
+/* ----------------------------------------------------------- Base surfaces */
+html,
+body {
+  background-color: var(--st-bg) !important;
+  background-image:
+    radial-gradient(circle at 12% -5%, rgba(124, 58, 237, 0.16), transparent 42%),
+    radial-gradient(circle at 92% 8%, rgba(6, 182, 212, 0.14), transparent 40%) !important;
+  background-attachment: fixed;
+  color: var(--st-text) !important;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
+
+/* Keep the custom landing page free of the theme content padding */
+body.layout--landing #main.page__content,
+body.layout--landing .page__content { padding: 0; }
+
+.page__content,
+.archive,
+.sidebar,
+.author__content,
+p, li, td, dd, .page__meta, .archive__item-excerpt {
+  color: var(--st-text);
+}
+
+.page__content h1, .page__content h2, .page__content h3,
+.page__content h4, .page__content h5, .page__content h6,
+.page__title, .archive__item-title, .author__name {
+  font-family: "Inter", sans-serif;
+  color: var(--st-text);
+  letter-spacing: -0.01em;
+}
+
+a { color: var(--st-link); }
+a:hover { color: var(--st-accent); }
+
+.page__content code, code.highlighter-rouge, .highlight,
+pre, tt, kbd, samp {
+  font-family: "JetBrains Mono", monospace !important;
+  background-color: rgba(255,255,255,0.06);
+  color: var(--st-text);
+}
+:root[data-theme="light"] .page__content code,
+:root[data-theme="light"] .highlight,
+:root[data-theme="light"] pre {
+  background-color: rgba(10,10,20,0.05);
+}
+
+/* --------------------------------------------------------------- Masthead */
+/* Turn the theme's top bar into a sticky glass navbar on every page. */
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: color-mix(in srgb, var(--st-bg) 68%, transparent);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--st-card-border);
+  animation: none;
+}
+.masthead__inner-wrap { padding-top: 0.9rem; padding-bottom: 0.9rem; }
+
+.site-title {
+  font-weight: 800 !important;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, var(--st-grad-1), var(--st-grad-2), var(--st-grad-3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+
+.greedy-nav { background: transparent; }
+.greedy-nav a {
+  color: var(--st-muted);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+.greedy-nav a:hover { color: var(--st-text); }
+.greedy-nav .visible-links a:before {
+  height: 2px;
+  background: linear-gradient(90deg, var(--st-grad-1), var(--st-grad-3));
+}
+.greedy-nav__toggle .navicon,
+.greedy-nav__toggle .navicon:before,
+.greedy-nav__toggle .navicon:after { background: var(--st-text); }
+.greedy-nav .hidden-links {
+  background: var(--st-bg-2);
+  border: 1px solid var(--st-card-border);
+}
+.greedy-nav .hidden-links a { color: var(--st-text); }
+.greedy-nav .hidden-links a:hover { background: var(--st-card); }
+.search__toggle { color: var(--st-text); }
+
+/* --------------------------------------------------------------- Sidebar */
+.author__avatar img,
+.author__avatar .avatar {
+  border: 2px solid var(--st-card-border);
+}
+.author__urls {
+  background: var(--st-bg-2);
+  border: 1px solid var(--st-card-border);
+  border-radius: 12px;
+}
+.author__urls a { color: var(--st-text); }
+.author__urls a:hover { color: var(--st-accent); }
+.author__urls .fa,
+.author__urls .fab,
+.author__urls .fas { color: var(--st-accent); }
+
+/* --------------------------------------------------------------- Content cards */
+.archive__item {
+  background: var(--st-card);
+  border: 1px solid var(--st-card-border);
+  border-radius: 14px;
+  padding: 1.25rem 1.4rem;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.archive__item:hover {
+  transform: translateY(-4px);
+  border-color: var(--st-accent);
+  box-shadow: 0 14px 34px rgba(0,0,0,0.30);
+}
+.archive__item-title { margin-top: 0; }
+.archive__item-title a { color: var(--st-text); }
+.archive__item-title a:hover { color: var(--st-accent); }
+.page__meta, .page__meta a { color: var(--st-muted); }
+
+/* Notices (used on About page) */
+.notice, .notice--info, .notice--primary, .notice--success, .notice--warning, .notice--danger {
+  background: var(--st-card) !important;
+  border-radius: 10px;
+  color: var(--st-text) !important;
+}
+
+/* --------------------------------------------------------------- Buttons */
+.btn, .btn--primary, .btn--inverse, .btn--light-outline {
+  border-radius: 999px !important;
+  font-weight: 600;
+}
+.btn--primary {
+  background: linear-gradient(90deg, var(--st-grad-1), var(--st-grad-2)) !important;
+  border: none !important;
+  color: #fff !important;
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.30);
+}
+.btn--primary:hover { transform: translateY(-2px); }
+
+/* --------------------------------------------------------------- TOC */
+.toc {
+  background: var(--st-bg-2);
+  border: 1px solid var(--st-card-border);
+  border-radius: 12px;
+}
+.toc .nav__title { background: linear-gradient(90deg, var(--st-grad-1), var(--st-grad-3)); }
+.toc .nav__items a { color: var(--st-muted); }
+.toc .nav__items a:hover, .toc .active a { color: var(--st-accent); }
+
+/* --------------------------------------------------------------- Footer */
+.page__footer {
+  background: var(--st-bg) !important;
+  border-top: 1px solid var(--st-card-border);
+  color: var(--st-muted) !important;
+}
+.page__footer a { color: var(--st-muted) !important; }
+.page__footer a:hover { color: var(--st-accent) !important; }
+.page__footer-copyright { color: var(--st-muted); }
+
+/* --------------------------------------------------------------- Misc */
+hr { border-color: var(--st-card-border); }
+blockquote { border-left-color: var(--st-accent); color: var(--st-muted); }
+.page__content img { border-radius: 10px; }
+
+/* Search overlay */
+.search-content { background: var(--st-bg); }
+.search-input { color: var(--st-text); }
